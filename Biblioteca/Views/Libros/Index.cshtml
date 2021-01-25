@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Biblioteca.Models.Libros>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoLibros.DescripcionGenero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Autor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LibroID)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TipoLibros.DescripcionGenero)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Autor)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LibroID)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.LibroID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.LibroID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.LibroID })
+    </td>
+</tr>
+}
+
+</table>
